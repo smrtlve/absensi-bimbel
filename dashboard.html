@@ -8,42 +8,110 @@
 </head>
 <body>
   <header>
-    <h2>Dashboard Guru</h2>
-    <nav>
-      <a href="#crud">CRUD Siswa</a>
-      <a href="#scan">Scan QR</a>
-      <a href="#laporan">Laporan</a>
-    </nav>
+    <div class="nav-container">
+      <h2>Dashboard Guru</h2>
+      <nav>
+        <a href="#crud">CRUD Siswa</a>
+        <a href="#scan">Scan QR</a>
+        <a href="#laporan">Laporan</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="crud">
-    <h3>Data Siswa</h3>
-    <button>Tambah Siswa</button>
-    <table>
-      <thead>
-        <tr><th>ID</th><th>Nama</th><th>Jenjang</th><th>Jam Les</th><th>Tarif</th><th>Aksi</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>S001</td><td>Budi</td><td>SD 5</td><td>Senin 16.00</td><td>50000</td><td>Edit | Hapus</td></tr>
-      </tbody>
-    </table>
-  </section>
+  <main class="container">
+    <!-- CRUD -->
+    <section id="crud">
+      <h3>Data Siswa</h3>
+      <button class="btn">+ Tambah Siswa</button>
+      <div class="table-box">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th><th>Nama</th><th>Jenjang</th><th>Jam Les</th><th>Tarif</th><th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>S001</td>
+              <td>Budi</td>
+              <td>SD 5</td>
+              <td>Senin 16.00</td>
+              <td>50.000</td>
+              <td><a href="#">Edit</a> | <a href="#">Hapus</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-  <section id="scan">
-    <h3>Scan QR</h3>
-    <div class="qr-box">📷 Kamera aktif di sini</div>
-  </section>
+    <!-- Scan -->
+    <section id="scan">
+      <h3>Scan QR</h3>
+      <div class="qr-box">📷 Kamera aktif di sini</div>
+    </section>
 
-  <section id="laporan">
-    <h3>Laporan Bulanan</h3>
-    <table>
-      <thead>
-        <tr><th>Nama</th><th>Hadir</th><th>Total Bayar</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Budi</td><td>8</td><td>Rp 400.000</td></tr>
-      </tbody>
-    </table>
-  </section>
+    <!-- Laporan -->
+    <section id="laporan">
+      <h3>Laporan Kehadiran</h3>
+      <input type="text" id="search" placeholder="Cari siswa berdasarkan nama...">
+      <div class="suggestions" id="suggestions"></div>
+      <div class="table-box">
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Jenjang</th>
+              <th>Hadir</th>
+              <th>Tgl Hadir</th>
+              <th>Jam Hadir</th>
+              <th>Total Bayar</th>
+            </tr>
+          </thead>
+          <tbody id="laporan-body">
+            <tr>
+              <td>Budi</td>
+              <td>SD 5</td>
+              <td>8</td>
+              <td>01-09-2025, 02-09-2025</td>
+              <td>16:00</td>
+              <td>Rp 400.000</td>
+            </tr>
+            <tr>
+              <td>Siti</td>
+              <td>SMP 2</td>
+              <td>7</td>
+              <td>01-09-2025, 03-09-2025</td>
+              <td>14:00</td>
+              <td>Rp 350.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Dummy data untuk suggestion
+    const siswa = ["Budi", "Siti", "Andi", "Rani"];
+    const searchInput = document.getElementById("search");
+    const suggestionsBox = document.getElementById("suggestions");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase();
+      suggestionsBox.innerHTML = "";
+      if (query.length > 0) {
+        const filtered = siswa.filter(n => n.toLowerCase().includes(query));
+        filtered.forEach(nama => {
+          const div = document.createElement("div");
+          div.textContent = nama;
+          div.onclick = () => {
+            searchInput.value = nama;
+            suggestionsBox.innerHTML = "";
+          };
+          suggestionsBox.appendChild(div);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
