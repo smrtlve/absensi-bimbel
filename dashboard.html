@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Guru - Absensi Bimbel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h2>Dashboard Guru</h2>
+    <nav>
+      <a href="#crud">CRUD Siswa</a>
+      <a href="#scan">Scan QR</a>
+      <a href="#laporan">Laporan</a>
+    </nav>
+  </header>
+
+  <section id="crud">
+    <h3>Data Siswa</h3>
+    <button>Tambah Siswa</button>
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Nama</th><th>Jenjang</th><th>Jam Les</th><th>Tarif</th><th>Aksi</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>S001</td><td>Budi</td><td>SD 5</td><td>Senin 16.00</td><td>50000</td><td>Edit | Hapus</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="scan">
+    <h3>Scan QR</h3>
+    <div class="qr-box">📷 Kamera aktif di sini</div>
+  </section>
+
+  <section id="laporan">
+    <h3>Laporan Bulanan</h3>
+    <table>
+      <thead>
+        <tr><th>Nama</th><th>Hadir</th><th>Total Bayar</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Budi</td><td>8</td><td>Rp 400.000</td></tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
