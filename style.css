@@ -49,3 +49,59 @@ th {
   border-radius: 12px;
   margin-top: 10px;
 }
+
+header {
+  background: #2563eb;
+  color: white;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+.nav-container {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+nav a {
+  color: white;
+  margin: 0 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+main.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 10px;
+}
+.table-box {
+  overflow-x: auto;
+}
+.btn {
+  padding: 8px 12px;
+  margin: 10px 0;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn:hover { background: #1e40af; }
+.suggestions {
+  border: 1px solid #ccc;
+  max-width: 300px;
+  margin: 5px 0;
+  border-radius: 6px;
+  background: #fff;
+  position: absolute;
+  z-index: 10;
+}
+.suggestions div {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.suggestions div:hover {
+  background: #f3f4f6;
+}
+
